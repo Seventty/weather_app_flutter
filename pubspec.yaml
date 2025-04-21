@@ -38,6 +38,7 @@ dependencies:
   flutter_riverpod: ^2.6.1
   jiffy: ^6.4.3
   geolocator: ^14.0.0
+  flutter_dotenv: ^5.2.1
 
 dev_dependencies:
   flutter_test:
