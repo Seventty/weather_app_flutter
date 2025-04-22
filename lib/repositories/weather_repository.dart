@@ -12,7 +12,7 @@ class WeatherRepository {
   }
 
   Future<Response> getWeatherByCity(String city) async {
-    return await _httpService.get('/weather', queryParams: {
+    return await _httpService.get(HttpConfig.baseUrl, queryParams: {
       'q': city,
       'appid': _apiKey,
       'units': 'metric',
