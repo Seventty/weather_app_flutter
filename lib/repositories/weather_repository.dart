@@ -1,22 +1,76 @@
-import 'package:dio/dio.dart';
+import 'package:weather_app/models/hourly_weather.dart';
+import 'package:weather_app/models/weather.dart';
+import 'package:weather_app/models/weekly_weather.dart';
 import '../shared/core/http_config.dart';
 import '../shared/core/http_service.dart';
 import '../config/constants.dart';
+import '../shared/services/geo_locator.dart';
 
 class WeatherRepository {
   final HttpService _httpService = HttpService();
   final String _apiKey = Constants.openWeatherKey;
+  final String _openMeteoBaseUrl = Constants.openMeteoBaseUrl;
+  static double lat = 0.0;
+  static double long = 0.0;
 
-  WeatherRepository(){
+  WeatherRepository() {
     HttpConfig.baseUrl = Constants.openWeatherBaseUrl;
   }
 
-  Future<Response> getWeatherByCity(String city) async {
-    return await _httpService.get(HttpConfig.baseUrl, queryParams: {
-      'q': city,
-      'appid': _apiKey,
-      'units': 'metric',
-      'lang': 'es'
-    });
+  static Future<void> _fetchLocation() async {
+    final location = await determinePosition();
+    lat = location.latitude;
+    long = location.longitude;
+  }
+
+  String _constructWeatherUrl() =>
+      '${HttpConfig.baseUrl}weather?lat=$lat&lon=$long&units=metric&appid=$_apiKey';
+
+  String _constructForectastUrl() =>
+      '${HttpConfig.baseUrl}/forecast?lat=$lat&lon=$long&units=metric&appi=$_apiKey';
+
+  String _constructWeatherByCity(String cityName) =>
+      '${HttpConfig.baseUrl}/weather?q=$cityName&units=metric&appi=$_apiKey';
+
+  String _constructWeeklyForecastUrl() =>
+      '$_openMeteoBaseUrl&latitude=$lat&longitude=$long';
+
+  /*
+  * Current weather
+   */
+  Future<Weather> fetchWeatherByCurrentLocation() async {
+    await _fetchLocation();
+    final url = _constructWeatherUrl();
+    final response = await _httpService.get(url);
+    return Weather.fromJson(response.data);
+  }
+
+  /*
+  * Hourly weather
+   */
+  Future<HourlyWeather> fetchForecastByCurrentLocation() async {
+    await _fetchLocation();
+    final url = _constructForectastUrl();
+    final response = await _httpService.get(url);
+    return HourlyWeather.fromJson(response.data);
+  }
+
+  /*
+  * Get weather by city
+   */
+  Future<Weather> fetchWeatherByCity({required String cityName}) async {
+    final url = _constructWeatherByCity(cityName);
+    final response = await _httpService.get(url);
+    return Weather.fromJson(response.data);
+  }
+
+  /*
+  * Weekly weather
+   */
+  Future<WeeklyWeather> fetchWeeklyForecast() async {
+    await _fetchLocation();
+    final url = _constructWeeklyForecastUrl();
+    final response = await _httpService.get(url);
+    return WeeklyWeather.fromJson(response.data);
   }
 }
