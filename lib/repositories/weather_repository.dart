@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:weather_app/models/hourly_weather.dart';
 import 'package:weather_app/models/weather.dart';
 import 'package:weather_app/models/weekly_weather.dart';

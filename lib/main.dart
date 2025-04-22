@@ -40,7 +40,6 @@ class _WeatherScreenState extends State<WeatherScreen> {
   void cargarClima() async {
     final weatherRepo = WeatherRepository();
     final response = await weatherRepo.fetchWeatherByCurrentLocation();
-    
   }
 
   @override
