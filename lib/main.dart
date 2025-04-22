@@ -29,7 +29,7 @@ class WeatherScreen extends StatefulWidget {
 }
 
 class _WeatherScreenState extends State<WeatherScreen> {
-  String _temperatureInfo = 'Cargando...';
+  final String _temperatureInfo = 'Cargando...';
 
   @override
   void initState() {
@@ -39,12 +39,8 @@ class _WeatherScreenState extends State<WeatherScreen> {
 
   void cargarClima() async {
     final weatherRepo = WeatherRepository();
-    final response = await weatherRepo.getWeatherByCity('Santo Domingo');
-    final data = response.data;
-
-    setState(() {
-      _temperatureInfo = "Temperatura actual en Santo Domingo: ${data['main']['temp']}°C";
-    });
+    final response = await weatherRepo.fetchWeatherByCurrentLocation();
+    
   }
 
   @override
