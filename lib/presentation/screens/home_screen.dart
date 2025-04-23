@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/presentation/screens/weather_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -11,7 +12,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int _currentPageIndex = 0;
 
   final _screens = [
-    Center(child: Text('Home screen')),
+    WeatherScreen(),
     Center(child: Text('Search screen')),
     Center(child: Text('Weather screen')),
     Center(child: Text('Settings screen')),
@@ -46,7 +47,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Weather app')),
       body: _screens[_currentPageIndex],
       bottomNavigationBar: NavigationBar(
         destinations: _destinations,

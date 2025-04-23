@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:weather_app/config/app_colors.dart';
 
@@ -19,9 +21,17 @@ class GradientContainer extends StatelessWidget {
             end: Alignment.topRight,
             colors: [
               AppColors.black,
-              ...[252, 250, 247, 245, 242, 240, 237, 235, 232, 230].map(
-                (alpha) => AppColors.secondaryBlack.withValues(alpha: alpha.toDouble()),
-              ),
+              AppColors.secondaryBlack,
+              AppColors.secondaryBlack.withOpacity(0.98),
+              AppColors.secondaryBlack.withOpacity(0.96),
+              AppColors.secondaryBlack.withOpacity(0.94),
+              AppColors.secondaryBlack.withOpacity(0.92),
+              AppColors.secondaryBlack.withOpacity(0.90),
+              AppColors.secondaryBlack.withOpacity(0.88),
+              AppColors.secondaryBlack.withOpacity(0.86),
+              AppColors.secondaryBlack.withOpacity(0.84),
+              AppColors.secondaryBlack.withOpacity(0.82),
+              AppColors.secondaryBlack.withOpacity(0.80),
               AppColors.darkBlue,
               AppColors.accentBlue,
               AppColors.lightBlue,
