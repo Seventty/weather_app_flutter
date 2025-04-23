@@ -10,7 +10,14 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _currentPageIndex = 0;
 
-  final List<NavigationDestination> _destinations = const [
+  final _screens = [
+    Center(child: Text('Home screen')),
+    Center(child: Text('Search screen')),
+    Center(child: Text('Weather screen')),
+    Center(child: Text('Settings screen')),
+  ];
+
+  static const List<NavigationDestination> _destinations = [
     NavigationDestination(
       icon: Icon(Icons.home_outlined),
       selectedIcon: Icon(Icons.home),
@@ -40,6 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Weather app')),
+      body: _screens[_currentPageIndex],
       bottomNavigationBar: NavigationBar(
         destinations: _destinations,
         labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
