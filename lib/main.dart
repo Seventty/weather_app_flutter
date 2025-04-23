@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:weather_app/presentation/screens/home_screen.dart';
-import 'package:weather_app/repositories/weather_repository.dart';
 
 Future<void> main() async {
   await dotenv.load();
