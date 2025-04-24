@@ -65,8 +65,10 @@ class Coord {
 
   const Coord({required this.lon, required this.lat});
 
-  factory Coord.fromJson(Map<String, dynamic> json) =>
-      Coord(lon: json['lon'] as double, lat: json['lat'] as double);
+  factory Coord.fromJson(Map<String, dynamic> json) => Coord(
+    lon: (json['lon'] as num).toDouble(),
+    lat: (json['lat'] as num).toDouble(),
+  );
 }
 
 @immutable
@@ -116,10 +118,10 @@ class Main {
   });
 
   factory Main.fromJson(Map<String, dynamic> json) => Main(
-    temp: json['temp'] as double,
-    feelsLike: json['feels_like'] as double,
-    tempMin: json['temp_min'] as double,
-    tempMax: json['temp_max'] as double,
+    temp: (json['temp'] as num).toDouble(),
+    feelsLike: (json['feels_like'] as num).toDouble(),
+    tempMin: (json['temp_min'] as num).toDouble(),
+    tempMax: (json['temp_max'] as num).toDouble(),
     pressure: json['pressure'],
     humidity: json['humidity'],
     seaLevel: json['sea_level'],
@@ -137,9 +139,9 @@ class Wind {
   const Wind({required this.speed, required this.deg, this.gust});
 
   factory Wind.fromJson(Map<String, dynamic> json) => Wind(
-    speed: json['speed'] ?? 0.0,
+    speed: (json['speed'] as num?)?.toDouble() ?? 0.0,
     deg: json['deg'] ?? 0,
-    gust: json['gust'],
+    gust: (json['gust'] as num?)?.toDouble(),
   );
 }
 
