@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:weather_app/config/text_styles.dart';
-import 'package:weather_app/extensions/datetime.dart';
-import 'package:weather_app/models/weather.dart';
+import 'package:weather_app/domain/providers/weather_providers.dart';
 import 'package:weather_app/presentation/screens/weather/weather_content.dart';
-import 'package:weather_app/presentation/views/gradient_container.dart';
-import 'package:weather_app/shared/providers/weather_providers.dart';
+import 'package:weather_app/presentation/widgets/gradient_container.dart';
+
 
 class WeatherScreen extends ConsumerWidget {
   const WeatherScreen({super.key});

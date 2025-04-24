@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:weather_app/models/weather.dart';
-import 'package:weather_app/repositories/weather_repository.dart';
+import 'package:weather_app/data/models/weather.dart';
+import 'package:weather_app/data/repositories/weather_repository.dart';
 
 final weatherRepositoryProvider = Provider<WeatherRepository>((ref) {
   return WeatherRepository();

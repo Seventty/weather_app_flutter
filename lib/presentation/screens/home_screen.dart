@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/config/app_colors.dart';
-import 'package:weather_app/presentation/screens/weather/weather_screen.dart';
+import 'package:weather_app/presentation/screens/weather_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
