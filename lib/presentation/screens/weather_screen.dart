@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:weather_app/config/text_styles.dart';
 import 'package:weather_app/domain/providers/weather_providers.dart';
-import 'package:weather_app/presentation/screens/weather/weather_content.dart';
 import 'package:weather_app/presentation/widgets/gradient_container.dart';
-
+import 'package:weather_app/presentation/widgets/hourly_forecast.dart';
+import 'package:weather_app/presentation/widgets/weather_content.dart';
 
 class WeatherScreen extends ConsumerWidget {
   const WeatherScreen({super.key});
@@ -18,6 +18,7 @@ class WeatherScreen extends ConsumerWidget {
         return GradientContainer(
           children: [
             Center(child: BuildWeatherContent(weatherData: weatherData)),
+            HourlyForecast()
           ],
         );
       },

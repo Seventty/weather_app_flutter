@@ -27,8 +27,17 @@ class BuildWeatherContent extends StatelessWidget {
         ),
         SizedBox(height: 40),
         Text(weatherData.weather[0].description, style: TextStyles.h3),
+        
         SizedBox(height: 40),
         WeatherInfo(weather: weatherData),
+        SizedBox(height: 30),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text('Today', style: TextStyles.h2),
+            TextButton(onPressed: () {}, child: Text('View full forecast')),
+          ],
+        ),
       ],
     );
   }

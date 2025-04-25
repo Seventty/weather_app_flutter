@@ -10,12 +10,18 @@ class WeatherInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        WeatherInfoTitle(title: 'Temp', value: '${weather.main.temp}°'),
-        WeatherInfoTitle(title: 'Wind', value: '${weather.wind.speed.kmh} km/h'),
-        WeatherInfoTitle(title: 'Humidity', value: '${weather.main.humidity}%'),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 30
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          WeatherInfoTitle(title: 'Temp', value: '${weather.main.temp}°'),
+          WeatherInfoTitle(title: 'Wind', value: '${weather.wind.speed.kmh} km/h'),
+          WeatherInfoTitle(title: 'Humidity', value: '${weather.main.humidity}%'),
+        ],
+      ),
     );
   }
 }
