@@ -28,10 +28,10 @@ class WeatherRepository {
       '${HttpConfig.baseUrl}weather?lat=$lat&lon=$long&units=metric&appid=$_apiKey';
 
   String _constructForectastUrl() =>
-      '${HttpConfig.baseUrl}/forecast?lat=$lat&lon=$long&units=metric&appi=$_apiKey';
+      '${HttpConfig.baseUrl}forecast?lat=$lat&lon=$long&units=metric&appid=$_apiKey';
 
   String _constructWeatherByCity(String cityName) =>
-      '${HttpConfig.baseUrl}/weather?q=$cityName&units=metric&appi=$_apiKey';
+      '${HttpConfig.baseUrl}weather?q=$cityName&units=metric&appi=$_apiKey';
 
   String _constructWeeklyForecastUrl() =>
       '$_openMeteoBaseUrl&latitude=$lat&longitude=$long';
