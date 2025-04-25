@@ -2,6 +2,8 @@
 
 A new Flutter project.
 
+[![Build and Upload Release](https://github.com/Seventty/weather_app_flutter/actions/workflows/build_release.yml/badge.svg)](https://github.com/Seventty/weather_app_flutter/actions/workflows/build_release.yml)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
