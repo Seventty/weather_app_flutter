@@ -4,5 +4,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 @immutable
 class Constants {
-  static String get apikey => dotenv.env['API_KEY'] ?? '';
+  static String get openWeatherKey => dotenv.env['OPEN_WEATHER_KEY'] ?? '';
+  static String get openWeatherBaseUrl => dotenv.env['OPEN_WEATHER_BASE_URL'] ?? '';
+  static String get openMeteoBaseUrl => dotenv.env['OPEN_METEO_BASE_URL'] ?? '';
 }
