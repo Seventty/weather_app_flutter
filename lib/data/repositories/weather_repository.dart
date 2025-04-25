@@ -1,10 +1,11 @@
-import 'package:weather_app/models/hourly_weather.dart';
-import 'package:weather_app/models/weather.dart';
-import 'package:weather_app/models/weekly_weather.dart';
-import '../shared/core/http_config.dart';
-import '../shared/core/http_service.dart';
-import '../config/constants.dart';
-import '../shared/services/geo_locator.dart';
+
+import 'package:weather_app/config/constants.dart';
+import 'package:weather_app/data/datasources/geo_locator.dart';
+import 'package:weather_app/data/models/hourly_weather.dart';
+import 'package:weather_app/data/models/weather.dart';
+import 'package:weather_app/data/models/weekly_weather.dart';
+import 'package:weather_app/data/services/http_config.dart';
+import 'package:weather_app/data/services/http_service.dart';
 
 class WeatherRepository {
   final HttpService _httpService = HttpService();
